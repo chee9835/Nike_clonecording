@@ -1,0 +1,28 @@
+.content {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 20px;
+    list-style-type: none;
+}
+
+/*.content__image > img {*/
+/*    max-width: 2000px;*/
+/*    object-fit: cover;*/
+/*}*/
+
+.content__title > h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+    size: 100px;
+}
+
+.content__text {
+    margin-bottom: 20px;
+}
+
+.content__moveto > button {
+    width: 10%;
+    border-radius: 35PX;
+    color: #FFFFFF;
+    background-color: black;
+}

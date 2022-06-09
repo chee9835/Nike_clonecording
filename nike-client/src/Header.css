@@ -1,0 +1,21 @@
+.header__short {
+    display: flex;
+    flex-direction: row;
+    font-size: 3em;
+}
+
+.header__logo {
+    flex: 1 1 0;
+    text-align: justify;
+}
+
+.header__button > fontawesome {
+    margin: 10px;
+}
+
+.fontawesome {
+    all:unset;
+    box-sizing: border-box;
+    cursor:pointer;
+    padding: 10px;
+}
