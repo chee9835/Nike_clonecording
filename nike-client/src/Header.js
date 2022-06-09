@@ -7,7 +7,7 @@ const Header = (props) => {
     return (
         <section className="header__short">
             <div className="header__logo">
-                <img src='img/nike.png' alt={"logo"}/>
+                <img src='/img/nike.png' alt={"logo"}/>
             </div>
             <div className="header__button">
                 <button className="fontawesome cart"><FontAwesomeIcon icon={faShoppingBag}/></button>

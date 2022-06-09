@@ -1,0 +1,45 @@
+.background {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.6);
+    flex-direction: column;
+}
+.background > section {
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 480px;
+    background-color: #fff;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    animation: modal-show 1s;
+    overflow: hidden;
+}
+
+.background > section > div {
+    text-align: center;
+}
+
+.background > section > header div {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.background > section > header button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    all:unset;
+    box-sizing: border-box;
+    cursor:pointer;
+}
+.login__middle {
+    display: flex;
+}
+.login__middle__left {
+    flex: 1 1 auto;
+    text-align: left;
+}

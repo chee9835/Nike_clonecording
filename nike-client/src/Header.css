@@ -1,10 +1,11 @@
 .header__short {
     display: flex;
     flex-direction: row;
-    font-size: 3em;
+    font-size: 2em;
 }
 
 .header__logo {
+    margin: 15px;
     flex: 1 1 0;
     text-align: justify;
 }

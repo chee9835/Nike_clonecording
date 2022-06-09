@@ -11,6 +11,7 @@
 /*}*/
 
 .content__title > h1 {
+    margin-top: 0;
     font-size: 40px;
     margin-bottom: 5px;
     size: 100px;
@@ -21,8 +22,11 @@
 }
 
 .content__moveto > button {
-    width: 10%;
+    padding: 10px 14px;
+    font-size: 20px;
+    min-width: 150px;
     border-radius: 35PX;
     color: #FFFFFF;
     background-color: black;
+    margin-bottom: 20px;
 }
