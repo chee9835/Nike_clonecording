@@ -10,10 +10,6 @@
     text-align: justify;
 }
 
-.header__button > fontawesome {
-    margin: 10px;
-}
-
 .fontawesome {
     all:unset;
     box-sizing: border-box;

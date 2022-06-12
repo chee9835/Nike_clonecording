@@ -2,7 +2,7 @@ import React from 'react';
 import './ModalPrivacy.css';
 
 const ModalPrivacy = (props) => {
-    const {open, close, later, agree} = props;
+    const {open, close, agree} = props;
 
     const privacyContent = {
         h1: "고객님의 나이키 멤버 정보가 이전됩니다.",
@@ -38,7 +38,7 @@ const ModalPrivacy = (props) => {
                             <label htmlFor="notToday">오늘 다시 표시 안 함</label>
                         </div>
                         <section>
-                            <button className="later" onClick={later}>
+                            <button className="later" onClick={close}>
                                 나중에 확인하기
                             </button>
                             <button className="agree" onClick={agree}>

@@ -1,0 +1,122 @@
+.search__background {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #FFFFFF;
+    flex-direction: column;
+    text-align: left;
+}
+
+.search__header {
+    display: flex;
+    margin: 20px;
+    min-width: 200px;
+}
+
+.search__left {
+    flex: 1 1 auto;
+    background-color: #ededed;
+    border: none;
+    margin-right: 10px;
+    border-radius: 35px;
+    width: 90%;
+}
+
+.search__search {
+    border: none;
+    all: unset;
+    border-radius: 35px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.search__search:hover {
+    color: #FFFFFF;
+    /*background-color: #d4d2d2;*/
+}
+
+.search__input {
+    border: none;
+    background-color: #ededed;
+    margin-left: 10px;
+}
+
+.search__input:focus {
+    outline: none;
+}
+
+
+.search__close {
+    border: none;
+    border-radius: 35px;
+    padding: 12px 16px;
+    font-weight: bold;
+}
+
+.search__close:hover {
+    background-color: #d4d2d2;
+}
+
+.suggestionTerm {
+    margin-left: 20px;
+}
+
+.suggestion {
+    font-size: 15px;
+    margin: 0;
+    color: #747474;
+    padding-bottom: 7px;
+}
+
+.term {
+    all: unset;
+    font-size: 17px;
+    padding-bottom: 5px;
+    text-shadow: 0.3px 0.3px 0.3px gray;
+}
+.tags {
+    padding-left: 0;
+}
+
+.tag {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.tag__title {
+    flex: 1 1 auto;
+    font-size: 17px;
+    padding-bottom: 5px;
+    text-shadow: 0.3px 0.3px 0.3px gray;
+}
+
+.tag__close-icon {
+    text-align: center;
+    font-size: 10px;
+    border-radius: 25px;
+    padding: 3px 6px;
+    background-color: #f3f3f3;
+    color: #5f5f5f;
+}
+
+.dropdown {
+    background-color: #ffffff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+    margin-top: -1px;
+    padding: 0.5rem 0;
+    border: 1px solid rgb(223, 225, 229);
+    border-radius: 0 0 1rem 1rem;
+    z-index: 3;
+}

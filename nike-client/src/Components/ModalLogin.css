@@ -29,8 +29,6 @@
     margin-bottom: 15px;
 }
 
-
-
 .background > section > header div {
     text-align: right;
     margin-right: 10px;
@@ -46,6 +44,7 @@
 }
 .login__middle {
     display: flex;
+    margin-top: 10px;
     margin-bottom: 20px;
     color: #c1c1c1;
 }
@@ -94,9 +93,16 @@
 .login__footer > text {
     color: #c1c1c1;
 }
+.id-failure-message {
+    color: orangered;
+    text-align: left;
+    font-size: 12px;
+}
+.password-failure-message {
+    color: orangered;
+    text-align: left;
+    font-size: 12px;
+}
 .hide {
     display: none;
-    color: orangered;
-    padding: 0;
-    text-align: left;
 }
