@@ -93,16 +93,9 @@
 .login__footer > text {
     color: #c1c1c1;
 }
-.id-failure-message {
-    color: orangered;
-    text-align: left;
-    font-size: 12px;
-}
-.password-failure-message {
-    color: orangered;
-    text-align: left;
-    font-size: 12px;
-}
+
 .hide {
-    display: none;
+    color: orangered;
+    text-align: left;
+    font-size: 12px;
 }

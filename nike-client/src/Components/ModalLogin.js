@@ -3,10 +3,7 @@ import './ModalLogin.css';
 
 const ModalLogin = (props) => {
     const {close} = props;
-    const state = {
-        userid: '',
-        password: '',
-    };
+
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
     const handleInputId = (e) => {
@@ -23,15 +20,19 @@ const ModalLogin = (props) => {
         setKeepLogin(!keepLogin);
     }
 
-    let idFailureMessage = document.querySelector('.id-failure-message')
-    let passwordFailureMessage = document.querySelector('.password-failure-message')
+    const [idAlarm, setIdAlarm] = useState(false);
+    const [passwordAlarm, setPasswordAlarm] = useState(false);
 
     function onClickLogin() {
         if (inputId === '') {
-            idFailureMessage.classList.remove('hide')
+            setIdAlarm(true);
+        } else {
+            setIdAlarm(false);
         }
         if (inputPw === '') {
-            passwordFailureMessage.classList.remove('hide')
+            setPasswordAlarm(true);
+        } else {
+            setPasswordAlarm(false);
         }
 
     }
@@ -54,14 +55,14 @@ const ModalLogin = (props) => {
                         name="userid"
                         onChange={handleInputId}
                         placeholder={'아이디'}/>
-                    <div className="id-failure-message hide">필수 입력 항목입니다.</div>
+                    {idAlarm ? <div className="hide">필수 입력 항목입니다.</div> : null}
                     <br/>
                     <input
                         type="password"
                         name="password"
                         onChange={handleInputPw}
                         placeholder={'비밀번호'}/>
-                    <div className="password-failure-message hide">필수 입력 항목입니다.</div>
+                    {passwordAlarm ? <div className="hide">필수 입력 항목입니다.</div> : null}
                 </div>
                 <section className='login__middle'>
                     <div className='login__middle__left'>
