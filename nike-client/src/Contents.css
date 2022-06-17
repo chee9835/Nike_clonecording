@@ -4,7 +4,9 @@
     margin: 20px;
     list-style-type: none;
 }
-
+.content__image > img {
+    width: 80%;
+}
 /*.content__image > img {*/
 /*    max-width: 2000px;*/
 /*    object-fit: cover;*/

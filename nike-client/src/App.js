@@ -9,7 +9,6 @@ import Loading from "./Components/Loading";
 import ModalLogin from "./Components/ModalLogin";
 
 
-
 function App() {
     const [modalPOpen, setModalPOpen] = useState(true);
     const [loading, setLoading] = useState(false);
@@ -24,9 +23,6 @@ function App() {
         setLoading(true);
         setTimeout(() => {console.log("로그인 페이지로 이동"); setLoading(false); setModalPOpen(false);setModalLOpen(true);}, 2000);
     }
-
-    // const handleLogin = () => {
-    // }
 
     return (
         <div className="App">
