@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faShoppingBag, faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faSearch, faShoppingBag} from "@fortawesome/free-solid-svg-icons";
 import './Header.css';
 import ModalSearch from "./Components/ModalSearch";
 
 const Header = () => {
-    const [modalSLOpen, setModalSOpen] = useState(false);
+    const [modalSOpen, setModalSOpen] = useState(false);
 
     const openSModal = () => {
         console.log("클릭!")
@@ -18,7 +18,7 @@ const Header = () => {
 
     return (
         <div>
-            {/*{setModalSOpen ? <ModalSearch close={closeModal}/> : null}*/}
+            {modalSOpen ? <ModalSearch close={closeModal}/> : null}
 
             <section className="header__short">
                 <div className="header__logo">

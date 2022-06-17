@@ -18,12 +18,14 @@
 }
 
 .search__left {
+    display: flex;
     flex: 1 1 auto;
     background-color: #ededed;
     border: none;
     margin-right: 10px;
     border-radius: 35px;
     width: 90%;
+    align-items: center;
 }
 
 .search__search {
@@ -31,7 +33,6 @@
     all: unset;
     border-radius: 35px;
     margin-left: 10px;
-    margin-top: 5px;
 }
 .search__search:hover {
     color: #FFFFFF;
@@ -39,6 +40,9 @@
 }
 
 .search__input {
+    font-family: monospace;
+    width: 90%;
+    min-width: 200px;
     border: none;
     background-color: #ededed;
     margin-left: 10px;
@@ -46,6 +50,11 @@
 
 .search__input:focus {
     outline: none;
+}
+
+.search__word-delete-button {
+    flex:0;
+    padding-right: 20px;
 }
 
 

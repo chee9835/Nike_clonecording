@@ -1,0 +1,31 @@
+.background {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.6);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.background > section {
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 200px;
+    background-color: #fff;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    animation: modal-show 0.1s;
+    overflow: hidden;
+}
+
+.background > section > img {
+    text-align: center;
+}
+
+.loadingText {
+    font: 1rem 'Noto Sans KR';
+    text-align: center;
+}

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ModalSearch.css';
 import dummySuggestionTerms from "../data/dummySuggestionTerm";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
@@ -22,14 +22,15 @@ const deselectedOptions = [
 ];
 
 const ModalSearch = (props) => {
-    const {close} = props;
-
     const [inputValue, setInputValue] = useState('')
+    const [tags, setTags] = useState('');
+    const [hasText, setHasText] = useState(false);
+    const [options, setOptions] = useState(deselectedOptions);
+
     const handleInputWord = (e) => {
         setInputValue(e.target.value)
     }
 
-    const [tags, setTags] = useState('');
     const removeTags = (indexToRemove) => {
         setTags(tags.filter((el, index) => index !== indexToRemove));
     };
@@ -38,11 +39,13 @@ const ModalSearch = (props) => {
         if (event.target.value !== null && !tags.includes(event.target.value) && window.event.keyCode === 13) {
             setTags([event.target.value, ...tags]);
             event.target.value = '';
+        } else {
+
+        }
+        if(event.target.value === '') {
+            setInputValue('');
         }
     }
-
-    const [hasText, setHasText] = useState(false);
-    const [options, setOptions] = useState(deselectedOptions);
 
     // useEffect를 아래와 같이 활용할 수도 있습니다.
     useEffect(() => {
@@ -106,18 +109,17 @@ const ModalSearch = (props) => {
         <div className='search__background'>
             <section className='search__header'>
                 <div className='search__left'>
-                    <button className='search__search' onClick={close}><FontAwesomeIcon icon={faSearch}/></button>
+                    <button className='search__search' onClick={props.close}><FontAwesomeIcon icon={faSearch}/></button>
                     <input
                         type='text'
                         onChange={handleInputChange}
                         value={inputValue}
                         className='search__input'
                         placeholder="검색"
-                        // onChange={handleInputWord}
                         onKeyUp={(e) => addTags(e)}/>
                     <div className='delete-button' onClick={handleDeleteButtonClick}>&times;</div>
                 </div>
-                <button className='search__close' onClick={close}>X</button>
+                <button className='search__close' onClick={props.close}>X</button>
                 {hasText ? <DropDown options={options} handleComboBox={handleDropDownClick}/> : ''}
             </section>
             {tags !== '' ?
