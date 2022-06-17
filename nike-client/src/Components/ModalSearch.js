@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './ModalSearch.css';
 import dummySuggestionTerms from "../data/dummySuggestionTerm";
-import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faDeleteLeft, faSearch} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const deselectedOptions = [
@@ -42,7 +42,7 @@ const ModalSearch = (props) => {
         } else {
 
         }
-        if(event.target.value === '') {
+        if (event.target.value === '') {
             setInputValue('');
         }
     }
@@ -107,59 +107,66 @@ const ModalSearch = (props) => {
 
     return (
         <div className='search__background'>
-            <section className='search__header'>
-                <div className='search__left'>
-                    <button className='search__search' onClick={props.close}><FontAwesomeIcon icon={faSearch}/></button>
-                    <input
-                        type='text'
-                        onChange={handleInputChange}
-                        value={inputValue}
-                        className='search__input'
-                        placeholder="검색"
-                        onKeyUp={(e) => addTags(e)}/>
-                    <div className='delete-button' onClick={handleDeleteButtonClick}>&times;</div>
-                </div>
-                <button className='search__close' onClick={props.close}>X</button>
-                {hasText ? <DropDown options={options} handleComboBox={handleDropDownClick}/> : ''}
-            </section>
-            {tags !== '' ?
-                <section className='suggestionTerm'>
-                    <div className="suggestion">최근 검색어</div>
-                    {<ul className='tags'>
-                        {tags.map((tag, index) => (
-                            <li key={index} className='tag'>
+            <div className='search__wrapper'>
+                <section className='search__header'>
+                    <div className='search__left'>
+                        <button className='search__search' onClick={props.close}><FontAwesomeIcon icon={faSearch}/>
+                        </button>
+                        <input
+                            type='text'
+                            onChange={handleInputChange}
+                            value={inputValue}
+                            className='search__input'
+                            placeholder="검색"
+                            onKeyUp={(e) => addTags(e)}/>
+                        {inputValue !== ''
+                            ? <div className='search__word-delete-button' onClick={handleDeleteButtonClick}>
+                                <FontAwesomeIcon icon={faDeleteLeft}/></div>
+                            : null}
+                    </div>
+                    <button className='search__close' onClick={props.close}>X</button>
+                    {hasText ?
+                        <DropDown className='dropdown' options={options} handleComboBox={handleDropDownClick}/> : ''}
+                </section>
+                {tags !== '' ?
+                    <section className='suggestionTerm'>
+                        <div className="suggestion">최근 검색어</div>
+                        {<ul className='tags'>
+                            {tags.map((tag, index) => (
+                                <li key={index} className='tag'>
                                 <span
                                     className='tag__title'
                                     onClick={(tag) => handleInputWord(tag)}>{tag}</span>
-                                <span
-                                    className='tag__close-icon'
-                                    onClick={() => removeTags(index)}>&times;</span>
-                            </li>
-                        ))}
-                    </ul>}
-                </section> : null
-            }
-            <section className='suggestionTerm'>
-                <div className="suggestion">추천 검색어</div>
-                {dummySuggestionTerms.map((suggestionTerm) => {
-                    return <div>
-                        <button className="term" onClick={() => {
-                            console.log(suggestionTerm.moveto)
-                        }}>{suggestionTerm.term}</button>
-                    </div>;
-                })}
-            </section>
+                                    <span
+                                        className='tag__close-icon'
+                                        onClick={() => removeTags(index)}>&times;</span>
+                                </li>
+                            ))}
+                        </ul>}
+                    </section> : null
+                }
+                <section className='suggestionTerm'>
+                    <div className="suggestion">추천 검색어</div>
+                    {dummySuggestionTerms.map((suggestionTerm) => {
+                        return <div>
+                            <button className="term" onClick={() => {
+                                console.log(suggestionTerm.moveto)
+                            }}>{suggestionTerm.term}</button>
+                        </div>;
+                    })}
+                </section>
+            </div>
         </div>
     )
 }
 
 export default ModalSearch;
 
-export const DropDown = ({ options, handleComboBox }) => {
+export const DropDown = ({options, handleComboBox}) => {
     return (
         <section className='dropdown'>
-            {options.map((el,index) => {
-                return <li key={index} onClick={()=>handleComboBox(el)}>{el}</li>
+            {options.map((el, index) => {
+                return <li key={index} onClick={() => handleComboBox(el)}>{el}</li>
             })}
         </section>
     );
