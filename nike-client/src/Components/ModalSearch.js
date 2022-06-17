@@ -3,6 +3,7 @@ import './ModalSearch.css';
 import dummySuggestionTerms from "../data/dummySuggestionTerm";
 import {faDeleteLeft, faSearch} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {getRegExp} from 'korean-regexp';
 
 const deselectedOptions = [
     '에어포스 1',
@@ -58,7 +59,7 @@ const ModalSearch = (props) => {
         setHasText(true);
         setInputValue(event.target.value);
         setOptions(options.filter((el) => el.includes(event.target.value)));
-        console.log(options);
+        console.log(getRegExp(event.target.value));
     };
 
     const handleDropDownClick = (clickedOption) => {

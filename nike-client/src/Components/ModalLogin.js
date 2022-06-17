@@ -51,6 +51,7 @@ const ModalLogin = (props) => {
                 </header>
                 <div>
                     <input
+                        className='loginIdInput'
                         type="text"
                         name="userid"
                         onChange={handleInputId}
@@ -58,6 +59,7 @@ const ModalLogin = (props) => {
                     {idAlarm ? <div className="hide">필수 입력 항목입니다.</div> : null}
                     <br/>
                     <input
+                        className='loginPasswordInput'
                         type="password"
                         name="password"
                         onChange={handleInputPw}
@@ -72,7 +74,7 @@ const ModalLogin = (props) => {
                             value="keepLogin"
                             checked={keepLogin}
                             onClick={keepLoginHandler}/>
-                        <label htmlFor="keepLogin">로그인 유지하기</label>
+                        <button className="keepLogin">로그인 유지하기</button>
                     </div>
                     <button className='login__middle__right'>아이디/비밀번호 찾기</button>
                 </section>

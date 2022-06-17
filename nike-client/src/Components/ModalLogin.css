@@ -9,6 +9,7 @@
     background-color: rgba(0, 0, 0, 0.6);
     flex-direction: column;
 }
+
 .background > section {
     padding: 30px;
     border-radius: 10px;
@@ -38,27 +39,46 @@
     position: absolute;
     top: 30px;
     right: 30px;
-    all:unset;
+    all: unset;
     box-sizing: border-box;
-    cursor:pointer;
+    cursor: pointer;
 }
+
+.loginIdInput {
+    cursor: pointer;
+}
+
+.loginPasswordInput {
+    cursor: pointer;
+}
+
 .login__middle {
     display: flex;
     margin-top: 10px;
     margin-bottom: 20px;
     color: #c1c1c1;
 }
+.login__middle > button {
+    cursor: pointer;
+}
+
 .login__middle__left {
     flex: 1 1 auto;
     text-align: left;
 }
 
 .login__middle__right {
-    all:unset;
+    all: unset;
+    cursor: pointer;
+}
+.keepLogin {
+    all: unset;
+    cursor: pointer;
 }
 .login__button {
     margin-bottom: 20px;
 }
+
 .login__button > button {
     text-align: center;
     font-size: 17px;
@@ -71,23 +91,29 @@
 .localLogin {
     color: #FFFFFF;
     background-color: #000000;
+    cursor: pointer;
 }
+
 .kakaoLogin {
     color: #000000;
     background-color: #fcea34;
     border: #fcea34;
+    cursor: pointer;
 }
+
 .facebookLogin {
     color: #FFFFFF;
     background-color: #215289;
     border: #215289;
+    cursor: pointer;
 }
 
 
 .login__footer > button {
-    all:unset;
+    all: unset;
     text-decoration: underline;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .login__footer > text {
