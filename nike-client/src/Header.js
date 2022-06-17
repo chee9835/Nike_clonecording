@@ -20,7 +20,7 @@ const Header = () => {
         <div>
             {modalSOpen ? <ModalSearch close={closeModal}/> : null}
 
-            <section className="header__short">
+            <section className="header-wrapper">
                 <div className="header__logo">
                     <img src='/img/nike.png' alt={"logo"}/>
                 </div>

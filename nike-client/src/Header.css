@@ -1,7 +1,10 @@
-.header__short {
+.header-wrapper {
     display: flex;
     flex-direction: row;
     font-size: 2em;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 200px;
 }
 
 .header__logo {
