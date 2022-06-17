@@ -3,6 +3,7 @@ import './ModalSearch.css';
 import dummySuggestionTerms from "../data/dummySuggestionTerm";
 import {faDeleteLeft, faSearch} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
 
 const deselectedOptions = [
     '에어포스 1',
@@ -20,6 +21,27 @@ const deselectedOptions = [
     '조거',
     '드라이 마일러 탱크',
 ];
+
+const boxShadow = '0 4px 6px rgb(32 33 36 / 28%)';
+
+export const DropDownContainer = styled.ul`
+  background-color: red;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+  margin-top: -1px;
+  padding: 0.5rem 0;
+  border: 1px solid rgb(223, 225, 229);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: ${boxShadow};
+  z-index: 999;
+`
 
 const ModalSearch = (props) => {
     const [inputValue, setInputValue] = useState('')
@@ -47,7 +69,6 @@ const ModalSearch = (props) => {
         }
     }
 
-    // useEffect를 아래와 같이 활용할 수도 있습니다.
     useEffect(() => {
         if (inputValue === '') {
             setHasText(false);
@@ -59,20 +80,6 @@ const ModalSearch = (props) => {
         setHasText(true);
         setInputValue(event.target.value);
         setOptions(options.filter((el) => el.includes(event.target.value)));
-        /**
-         * handleInputChange 함수는
-         * - input값 변경 시 발생되는 change 이벤트 핸들러입니다.
-         * - input값과 상태를 연결시킬 수 있게 controlled component로 만들 수 있고
-         * - autocomplete 추천 항목이 dropdown으로 시시각각 변화되어 보여질 수 있도록 상태를 변경합니다.
-         *
-         * handleInputChange 함수를 완성하여 아래 3가지 기능을 구현합니다.
-         *
-         * onChange 이벤트 발생 시
-         * 1. input값 상태인 inputValue가 적절하게 변경되어야 합니다.
-         * 2. input값 유무 상태인 hasText가 적절하게 변경되어야 합니다.
-         * 3. autocomplete 추천 항목인 options의 상태가 적절하게 변경되어야 합니다.
-         * Tip : options의 상태에 따라 dropdown으로 보여지는 항목이 달라집니다.
-         */
     };
 
     const handleDropDownClick = (clickedOption) => {
@@ -93,16 +100,6 @@ const ModalSearch = (props) => {
     const handleDeleteButtonClick = () => {
         setInputValue('');
         setOptions(deselectedOptions);
-        /**
-         * handleDeleteButtonClick 함수는
-         * - input의 오른쪽에 있는 X버튼 클릭 시 발생되는 click 이벤트 핸들러입니다.
-         * - 함수 작성을 완료하여 input값을 한 번에 삭제하는 기능을 구현합니다.
-         *
-         * handleDeleteButtonClick 함수를 완성하여 아래 기능을 구현합니다.
-         *
-         * onClick 이벤트 발생 시
-         * 1. input값 상태인 inputValue가 빈 문자열이 되어야 합니다.
-         */
     };
 
     return (
@@ -125,8 +122,7 @@ const ModalSearch = (props) => {
                             : null}
                     </div>
                     <button className='search__close' onClick={props.close}>X</button>
-                    {hasText ?
-                        <DropDown className='dropdown' options={options} handleComboBox={handleDropDownClick}/> : ''}
+
                 </section>
                 {tags !== '' ?
                     <section className='suggestionTerm'>
@@ -145,16 +141,19 @@ const ModalSearch = (props) => {
                         </ul>}
                     </section> : null
                 }
-                <section className='suggestionTerm'>
-                    <div className="suggestion">추천 검색어</div>
-                    {dummySuggestionTerms.map((suggestionTerm) => {
-                        return <div>
-                            <button className="term" onClick={() => {
-                                console.log(suggestionTerm.moveto)
-                            }}>{suggestionTerm.term}</button>
-                        </div>;
-                    })}
-                </section>
+                {hasText ?
+                    <DropDown className='dropdown' options={options} handleComboBox={handleDropDownClick}/>
+                    :
+                    <section className='suggestionTerm'>
+                        <div className="suggestion">추천 검색어</div>
+                        {dummySuggestionTerms.map((suggestionTerm) => {
+                            return <div>
+                                <button className="term" onClick={() => {
+                                    console.log(suggestionTerm.moveto)
+                                }}>{suggestionTerm.term}</button>
+                            </div>;
+                        })}
+                    </section>}
             </div>
         </div>
     )
