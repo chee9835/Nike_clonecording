@@ -3,7 +3,6 @@ import './ModalSearch.css';
 import dummySuggestionTerms from "../data/dummySuggestionTerm";
 import {faDeleteLeft, faSearch} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import styled from "styled-components";
 
 const deselectedOptions = [
     '에어포스 1',
@@ -21,27 +20,6 @@ const deselectedOptions = [
     '조거',
     '드라이 마일러 탱크',
 ];
-
-const boxShadow = '0 4px 6px rgb(32 33 36 / 28%)';
-
-export const DropDownContainer = styled.ul`
-  background-color: red;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  list-style-type: none;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 0px;
-  margin-top: -1px;
-  padding: 0.5rem 0;
-  border: 1px solid rgb(223, 225, 229);
-  border-radius: 0 0 1rem 1rem;
-  box-shadow: ${boxShadow};
-  z-index: 999;
-`
 
 const ModalSearch = (props) => {
     const [inputValue, setInputValue] = useState('')
@@ -80,6 +58,7 @@ const ModalSearch = (props) => {
         setHasText(true);
         setInputValue(event.target.value);
         setOptions(options.filter((el) => el.includes(event.target.value)));
+        console.log(options);
     };
 
     const handleDropDownClick = (clickedOption) => {
@@ -107,7 +86,7 @@ const ModalSearch = (props) => {
             <div className='search__wrapper'>
                 <section className='search__header'>
                     <div className='search__left'>
-                        <button className='search__search' onClick={props.close}><FontAwesomeIcon icon={faSearch}/>
+                        <button className='search__icon' onClick={props.close}><FontAwesomeIcon icon={faSearch}/>
                         </button>
                         <input
                             type='text'
@@ -125,8 +104,8 @@ const ModalSearch = (props) => {
 
                 </section>
                 {tags !== '' ?
-                    <section className='suggestionTerm'>
-                        <div className="suggestion">최근 검색어</div>
+                    <section className='suggestionTerm-wrapper'>
+                        <div className="suggestionTerm">최근 검색어</div>
                         {<ul className='tags'>
                             {tags.map((tag, index) => (
                                 <li key={index} className='tag'>
@@ -144,8 +123,8 @@ const ModalSearch = (props) => {
                 {hasText ?
                     <DropDown className='dropdown' options={options} handleComboBox={handleDropDownClick}/>
                     :
-                    <section className='suggestionTerm'>
-                        <div className="suggestion">추천 검색어</div>
+                    <section className='suggestionTerm-wrapper'>
+                        <div className="suggestionTerm">추천 검색어</div>
                         {dummySuggestionTerms.map((suggestionTerm) => {
                             return <div>
                                 <button className="term" onClick={() => {
@@ -161,12 +140,15 @@ const ModalSearch = (props) => {
 
 export default ModalSearch;
 
+
 export const DropDown = ({options, handleComboBox}) => {
     return (
-        <section className='dropdown'>
+        <div className='dropdown'>
             {options.map((el, index) => {
-                return <li key={index} onClick={() => handleComboBox(el)}>{el}</li>
+                return <div>
+                    <button className='term' key={index} onClick={() => handleComboBox(el)}>{el}</button>
+                </div>
             })}
-        </section>
+        </div>
     );
 };
