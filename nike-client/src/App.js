@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import ModalPrivacy from "./Components/ModalPrivacy";
 import Loading from "./Components/Loading";
 import ModalLogin from "./Components/ModalLogin";
-
+import GlobalStyle from "./GlobalStyle";
 
 function App() {
     const [modalPOpen, setModalPOpen] = useState(true);
@@ -25,7 +24,9 @@ function App() {
     }
 
     return (
+
         <div className="App">
+            <GlobalStyle />
             <div>
                 <ModalPrivacy open={modalPOpen} close={closeModal} agree={handleAgree}/>
                 {loading ? <Loading /> : null}

@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import {SiCoursera, SiJordan} from "react-icons/si";
 import {BsBag, BsHeart} from "react-icons/bs";
 import {RiSearch2Line} from "react-icons/ri";
-import {FaBars} from "react-icons/fa";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBars, faSearch, faShoppingBag} from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
   display: flex;
@@ -27,6 +28,7 @@ const Container = styled.div`
   }
 
   .brandLogo {
+    cursor: pointer;
     padding: 10px;
   }
 
@@ -48,6 +50,17 @@ const Container = styled.div`
     size: 1cm;
     margin: 15px;
     text-align: justify;
+    cursor: pointer;
+  }
+  .fontawesome {
+    all:unset;
+    box-sizing: border-box;
+    cursor:pointer;
+    padding: 10px;
+  }
+  .header-icon{
+    display: flex;
+    cursor: pointer;
   }
 
   .icon {
@@ -55,6 +68,7 @@ const Container = styled.div`
     box-sizing: border-box;
     cursor: pointer;
     padding-right: 20px;
+    cursor: pointer;
   }
 
   .header-middle-wrapper-web {
@@ -68,10 +82,18 @@ const Container = styled.div`
 
   .menu {
     padding-right: 20px;
+    cursor: pointer;
   }
 
   .menu-special-event {
     color: #fd6d09;
+    cursor: pointer;
+  }
+  .search-input {
+    width: 120px;
+    border-radius: 10px;
+    background-color:  #f3f3f3;;
+    
   }
 
   @media screen and (min-width: 900px) {
@@ -120,7 +142,7 @@ const Header = () => {
                     <SiCoursera className='brandLogo' />
                 </div>
                 <div className='cs-wrapper'>
-                    고객센터 | 멤버 가입 | 로그인
+                    고객센터  |  멤버 가입  |  로그인
                 </div>
             </section>
             <section className="header-middle-wrapper">
@@ -128,9 +150,12 @@ const Header = () => {
                     <img src='/img/nike.png' alt={"logo"}/>
                 </div>
                 <div className="header-icon">
-                    <BsBag className="icon cartEmoji"/>
-                    <RiSearch2Line className="icon searchEmoji" onClick={openSModal}/>
-                    <FaBars className="fontawesome tabletEmoji"/>
+                    <button className="fontawesome cartEmoji"><FontAwesomeIcon icon={faShoppingBag}/></button>
+                    <button className="fontawesome searchEmoji"
+                            onClick={openSModal}>
+                        <FontAwesomeIcon icon={faSearch}/>
+                    </button>
+                    <button className="fontawesome tabletEmoji"><FontAwesomeIcon icon={faBars}/></button>
                 </div>
             </section>
             <section className="header-middle-wrapper-web">
@@ -146,7 +171,11 @@ const Header = () => {
                     <span className='menu-special-event'>Re, Play 프로젝트</span>
                 </div>
                 <div className="header-icon">
+                    <div className='search-input-wrapper'>
+                    {/*<input className='search-input' placeholder="검색">*/}
                     <RiSearch2Line className="icon searchEmoji" size='35px' onClick={openSModal}/>
+                    {/*</input>*/}
+                    </div>
                     <BsHeart className="icon" size='33px'/>
                     <BsBag className="icon cartEmoji" size='33px'/>
                 </div>
